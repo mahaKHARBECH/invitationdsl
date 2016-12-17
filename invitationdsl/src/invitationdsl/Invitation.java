@@ -1,5 +1,7 @@
 package invitationdsl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +60,27 @@ public class Invitation {
 			System.out.println("Lieu de la conference : "+inv.lieu);
 			for (String c : inv.conferenciers){
 			System.out.println("Conferenciers : "+c);
+			generateTextFile(inv);
 			}
+		}
+		
+		public static void generateTextFile(Invitation inv){
+			 try{
+				    PrintWriter writer = new PrintWriter("Invitation-"+inv.nomInvite+".txt", "UTF-8");
+					writer.println("---------------Invitation---------------");
+				    writer.println("Nom de l'invite : "+inv.nomInvite);
+				    writer.println("Nom de la conference : "+inv.nom);
+					writer.println("Theme de la conference : "+inv.theme);
+					writer.println("Date de la conference : "+inv.date);
+					writer.println("Lieu de la conference : "+inv.lieu);
+					for (String c : inv.conferenciers){
+					writer.println("Conferenciers : "+c);
+					}
+				    writer.close();
+				} catch (IOException e) {
+				   System.out.println("Création échouée du fichier texte!!");
+				}
+
 		}
 		
 		
