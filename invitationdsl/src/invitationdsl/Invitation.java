@@ -18,24 +18,25 @@ public class Invitation {
 		private Date date;
 		
 		
-		protected void nomInvite( String nomInv ) { nomInvite = nomInv; }
+		public void nomInvite( String nomInv ) { nomInvite = nomInv; }
 
-		protected void conferenciers( String... confs ) {
+		public void conferenciers( String... confs ) {
 			conferenciers = confs.clone();
 		}
 	
-		protected void nom( String nomConf ) {
+		public void nom( String nomConf ) {
 			nom = nomConf;
 		}
 		
-		protected void theme( String themeConf ) {
+		public void theme( String themeConf ) {
 			theme = themeConf;
 		}
 		
-		protected void lieu( String lieuConf ) {
+		public void lieu( String lieuConf ) {
 			lieu = lieuConf;
 		}
-		protected void date( String dateInString ) {
+		
+		public void date( String dateInString ) {
 			
 			SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 			try {
@@ -46,7 +47,7 @@ public class Invitation {
 		}
 		
 				
-		Invitation( InvitationBuilder d ) {
+		public Invitation( InvitationBuilder d ) {
 			d.build( this );
 			}
 		
