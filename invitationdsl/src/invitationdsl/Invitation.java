@@ -52,17 +52,18 @@ public class Invitation {
 			}
 		
 		 @Override
-	public String toString() {
-		String conferences = "Conferenciers : ";
-		for (String c : this.conferenciers) {
-			conferences = conferences + "" + c;
-		}
+	    public String toString() {
+		    String conferences = "\n Conferenciers : ";
+		    for (String c : this.conferenciers) {
+			   conferences = conferences + "" + c;
+		    }
 
 		return "---------------Invitation---------------" 
 		        + "\n Nom de l'invite : " + this.nomInvite
 				+ "\n Nom de la conference : " + this.nom
 				+ "\n Theme de la conference : " + this.theme
-				+ "\n Date de la conference : " + conferences + this.date
+				+ conferences
+				+ "\n Date de la conference : " + this.date
 				+ "\n Lieu de la conference : " + this.lieu;
 	}
 		
