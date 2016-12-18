@@ -51,38 +51,20 @@ public class Invitation {
 			d.build( this );
 			}
 		
-		public static void print(Invitation inv)
-		{
-			System.out.println("---------------Invitation---------------");
-			System.out.println("Nom de l'invite : "+inv.nomInvite);
-			System.out.println("Nom de la conference : "+inv.nom);
-			System.out.println("Theme de la conference : "+inv.theme);
-			System.out.println("Date de la conference : "+inv.date);
-			System.out.println("Lieu de la conference : "+inv.lieu);
-			for (String c : inv.conferenciers){
-			System.out.println("Conferenciers : "+c);
-			generateTextFile(inv);
-			}
+		 @Override
+	public String toString() {
+		String conferences = "Conferenciers : ";
+		for (String c : this.conferenciers) {
+			conferences = conferences + "" + c;
 		}
-		
-		public static void generateTextFile(Invitation inv){
-			 try{
-				    PrintWriter writer = new PrintWriter("Invitation-"+inv.nomInvite+".txt", "UTF-8");
-					writer.println("---------------Invitation---------------");
-				    writer.println("Nom de l'invite : "+inv.nomInvite);
-				    writer.println("Nom de la conference : "+inv.nom);
-					writer.println("Theme de la conference : "+inv.theme);
-					writer.println("Date de la conference : "+inv.date);
-					writer.println("Lieu de la conference : "+inv.lieu);
-					for (String c : inv.conferenciers){
-					writer.println("Conferenciers : "+c);
-					}
-				    writer.close();
-				} catch (IOException e) {
-				   System.out.println("Création échouée du fichier texte!!");
-				}
 
-		}
+		return "---------------Invitation---------------" 
+		        + "\n Nom de l'invite : " + this.nomInvite
+				+ "\n Nom de la conference : " + this.nom
+				+ "\n Theme de la conference : " + this.theme
+				+ "\n Date de la conference : " + conferences + this.date
+				+ "\n Lieu de la conference : " + this.lieu;
+	}
 		
 		
 		public String nomInvite() {

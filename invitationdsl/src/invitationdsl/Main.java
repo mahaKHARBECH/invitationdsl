@@ -12,7 +12,7 @@ public class Main {
 			inv.date("30-03-2017 09:00:00");
 			} );
 
-		Invitation.print(invitation);
+		System.out.print(invitation);
 	}
 
 }
